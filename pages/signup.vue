@@ -67,9 +67,10 @@ const router = useRouter()
 const authStore = useAuthStore()
 const { mock } = authStore
 const isLoading = ref(false);
+const { user } = storeToRefs(authStore)
 const initialState = {
-  username: '',
-  email: '',
+  username: user.value?.username ?? '',
+  email: user.value?.email ?? '',
   password: '',
   password_repeat: '',
   policy: false,

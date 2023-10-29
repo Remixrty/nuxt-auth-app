@@ -104,6 +104,13 @@ onMounted(() => {
     item.addEventListener('keyup', (e) => focusPrevInput(e, index));
   });
 });
+
+onUnmounted(() => {
+  inputs.value?.forEach((item, index) => {
+    item.removeEventListener('input', (e) => focusNextInput(e, index));
+    item.removeEventListener('keyup', (e) => focusPrevInput(e, index));
+  })
+})
 </script>
 
 <style scoped lang="scss">
